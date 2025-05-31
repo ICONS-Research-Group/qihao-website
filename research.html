@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Qihao Li's Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .research-area {
+            margin-bottom: 3rem;
+            scroll-margin-top: 2rem;
+        }
+        .research-content {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        .research-image {
+            flex: 0 0 300px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .research-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .research-details {
+            flex: 1;
+        }
+        .research-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .highlight-card {
+            background: rgba(37, 99, 235, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .highlight-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .research-publications {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .research-content {
+                flex-direction: column;
+            }
+            .research-image {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>Qihao Li</h1>
+        <nav>
+            <a href="index.html"><i class="fas fa-user"></i> About</a>
+            <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
+            <a href="research.html" class="active"><i class="fas fa-microscope"></i> Research</a>
+            <a href="publications.html"><i class="fas fa-book"></i> Publications</a>
+            <a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a>
+            <a href="#cv-download"><i class="fas fa-file-pdf"></i> Curriculum Vitae</a>
+            <a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a>
+        </nav>
+    </div>
+    <div class="main-content">
+        <section class="card">
+            <h2>Research Areas</h2>
+            
+            <div id="iot" class="research-area">
+                <h3>Internet of Things (IoT)</h3>
+                <div class="research-content">
+                    <div class="research-image">
+                        <img src="images/iot.jpg" alt="Internet of Things Research">
+                    </div>
+                    <div class="research-details">
+                        <p>Our research in Internet of Things (IoT) focuses on developing innovative solutions for intelligent agent communication and networking. We explore advanced methodologies for enabling efficient and secure communication between IoT devices, with particular emphasis on:</p>
+                        
+                        <div class="research-highlights">
+                            <div class="highlight-card">
+                                <h4><i class="fas fa-robot"></i> Intelligent Agents</h4>
+                                <p>Development of smart agents capable of autonomous decision-making and adaptive behavior in IoT environments.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="fas fa-network-wired"></i> Device Networking</h4>
+                                <p>Optimization of device-to-device communication protocols and network architecture for IoT systems.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="fas fa-shield-alt"></i> Security & Privacy</h4>
+                                <p>Implementation of robust security measures and privacy-preserving techniques for IoT networks.</p>
+                            </div>
+                        </div>
+
+                        <div class="research-publications">
+                            <h4>Recent Work</h4>
+                            <ul>
+                                <li>Development of efficient communication protocols for IoT devices</li>
+                                <li>Implementation of intelligent agent systems for automated decision-making</li>
+                                <li>Research on IoT security and privacy preservation techniques</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wireless" class="research-area">
+                <h3>Wireless Networking</h3>
+                <div class="research-content">
+                    <div class="research-image">
+                        <img src="images/wireless.jpg" alt="Wireless Networking Research">
+                    </div>
+                    <div class="research-details">
+                        <p>Our research in wireless networking focuses on developing advanced technologies and protocols for next-generation networks. We investigate innovative solutions for improving wireless communication efficiency, reliability, and performance, with emphasis on:</p>
+                        
+                        <div class="research-highlights">
+                            <div class="highlight-card">
+                                <h4><i class="fas fa-wifi"></i> Wireless Protocols</h4>
+                                <p>Development of advanced wireless communication protocols and standards.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="fas fa-chart-network"></i> Network Optimization</h4>
+                                <p>Research on wireless network optimization and performance enhancement.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="fas fa-broadcast-tower"></i> Next-Gen Technologies</h4>
+                                <p>Investigation of emerging wireless technologies and their applications.</p>
+                            </div>
+                        </div>
+
+                        <div class="research-publications">
+                            <h4>Recent Work</h4>
+                            <ul>
+                                <li>Research on advanced wireless networking protocols</li>
+                                <li>Development of optimization techniques for wireless networks</li>
+                                <li>Investigation of next-generation wireless technologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="agents" class="research-area">
+                <h3>Intelligent Agents Communication and Networking</h3>
+                <div class="research-content">
+                    <div class="research-image">
+                        <img src="images/agents.jpg" alt="Intelligent Agents Research">
+                    </div>
+                    <div class="research-details">
+                        <p>Our research in intelligent agents communication and networking focuses on developing advanced frameworks and protocols for agent-based systems. We work on improving communication efficiency and intelligence in distributed agent networks, with particular attention to:</p>
+                        
+                        <div class="research-highlights">
+                            <div class="highlight-card">
+                                <h4><i class="fas fa-brain"></i> Agent Intelligence</h4>
+                                <p>Development of intelligent communication strategies for autonomous agents.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="fas fa-network-wired"></i> Agent Networks</h4>
+                                <p>Research on multi-agent system architectures and protocols.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="fas fa-cogs"></i> System Integration</h4>
+                                <p>Implementation of agent-based systems in real-world applications.</p>
+                            </div>
+                        </div>
+
+                        <div class="research-publications">
+                            <h4>Recent Work</h4>
+                            <ul>
+                                <li>Development of intelligent agent communication protocols</li>
+                                <li>Research on multi-agent system optimization</li>
+                                <li>Investigation of agent-based networking solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html> 

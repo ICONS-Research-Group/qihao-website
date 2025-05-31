@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Qihao Li's Personal Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .publications-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem;
+        }
+
+        .publication-section {
+            background: var(--card-background);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .publication-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.05rem;
+        }
+
+        .publication-item {
+            padding: 0.35rem 0.5rem;
+            background: rgba(37, 99, 235, 0.05);
+            border-radius: 3px;
+            border-left: 2px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .publication-item:hover {
+            transform: translateX(3px);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .pub-index {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.1rem;
+            display: inline-block;
+        }
+
+        .pub-title {
+            font-size: 0.9rem;
+            color: #000000;
+            margin-bottom: 0.15rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .pub-authors {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.1rem;
+            line-height: 1.2;
+        }
+
+        .pub-authors strong {
+            color: var(--primary-color);
+        }
+
+        .pub-venue {
+            font-size: 0.8rem;
+            color: #000000;
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 0.1rem;
+        }
+
+        .pub-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-top: 0.1rem;
+            font-size: 0.75rem;
+            color: #666;
+            flex-wrap: wrap;
+            line-height: 1.15;
+        }
+
+        .pub-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.1rem;
+            white-space: nowrap;
+        }
+
+        .pub-meta i {
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .publications-container {
+                padding: 0.5rem;
+            }
+
+            .publication-section {
+                padding: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .publication-item {
+                padding: 0.3rem 0.4rem;
+            }
+
+            .pub-meta {
+                gap: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>Qihao Li</h1>
+        <nav>
+            <a href="index.html"><i class="fas fa-user"></i> About</a>
+            <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
+            <a href="research.html"><i class="fas fa-microscope"></i> Research</a>
+            <a href="publications.html" class="active"><i class="fas fa-book"></i> Publications</a>
+            <a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a>
+            <a href="index.html#cv-download"><i class="fas fa-file-pdf"></i> Curriculum Vitae</a>
+            <a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="publications-container">
+            <section class="publication-section">
+                <h2 class="section-title">Selected Journal Papers</h2>
+                <div class="publication-list">
+                    <div class="publication-item">
+                        <div class="pub-index">[J1]</div>
+                        <div class="pub-title">Digital-Twin-Enabled Industrial IoT: Vision, Framework, and Future Directions</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, Q. Ye, N. Zhang, W. Zhang, F. Hu</div>
+                        <div class="pub-venue">IEEE Wireless Communications Magazine</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-calendar"></i>2024</span>
+                            <span><i class="fas fa-book"></i>Early Access</span>
+                            <span><i class="fas fa-hashtag"></i>DOI: 10.1109/MCOM.003.2400515</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J2]</div>
+                        <div class="pub-title">Channel-Aware Latency Tail Taming in Industrial IoT</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, J. Chen, M. Cheffena, X. Shen</div>
+                        <div class="pub-venue">IEEE Transactions on Wireless Communications</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-calendar"></i>2023</span>
+                            <span><i class="fas fa-layer-group"></i>Vol. 22, No. 9, pp. 6107-6123</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J3]</div>
+                        <div class="pub-title">Channel-based Optimal Back-off Delay Control in Delay-Constrained Industrial WSNs</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, N. Zhang, M. Cheffena, X. Shen</div>
+                        <div class="pub-venue">IEEE Transactions on Wireless Communications</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-calendar"></i>2020</span>
+                            <span><i class="fas fa-layer-group"></i>Vol. 19, No. 1, pp. 696-711</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J4]</div>
+                        <div class="pub-title">Exploiting Dispersive Power Gain and Delay Spread for Sybil Detection in Industrial WSNs: A Multi-Kernel Approach</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, M. Cheffena</div>
+                        <div class="pub-venue">IEEE Transactions on Wireless Communications</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-calendar"></i>2019</span>
+                            <span><i class="fas fa-layer-group"></i>Vol. 18, No. 3, pp. 1805-1818</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J5]</div>
+                        <div class="pub-title">Joint NLoS Predictive Beamforming and Power Allocation for SS-OTFS-Enabled ISAC in Vehicular Networks</div>
+                        <div class="pub-authors">Z. Li, F. Hu, Z. Ling, S. Song, <strong>Q. Li</strong></div>
+                        <div class="pub-venue">IEEE Transactions on Intelligent Transportation Systems</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-check-circle"></i>Accepted</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J6]</div>
+                        <div class="pub-title">Modeling Realistic Adversarial Traffic Against Deep Learning-Based Intrusion Detection System in Industrial IoT</div>
+                        <div class="pub-authors">W. Yao, H. Peng, <strong>Q. Li</strong>, Xuemin Shen</div>
+                        <div class="pub-venue">IEEE Internet of Things Journal</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-check-circle"></i>Accepted</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J7]</div>
+                        <div class="pub-title">Mixture of Gradient: A Unified Enhancing Approach for Deep Learning-based Wireless Network Optimization</div>
+                        <div class="pub-authors">N. Cheng, L. Ma, Y. Dai, X. Wang, <strong>Q. Li</strong>, W. Quan, H. Liang, X. (Sherman) Shen</div>
+                        <div class="pub-venue">IEEE Internet of Things Journal</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-check-circle"></i>Accepted</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J8]</div>
+                        <div class="pub-title">Age of Information Minimization in Aerial IRS Assisted Covert Communication for Internet of Things Networks</div>
+                        <div class="pub-authors">D. Wang, L. Cao, W. Shen, Z. Li, <strong>Q. Li</strong></div>
+                        <div class="pub-venue">IEEE Internet of Things Journal</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-calendar"></i>2025</span>
+                            <span><i class="fas fa-layer-group"></i>Vol. 12, No. 18</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J9]</div>
+                        <div class="pub-title">Single Source Cross-Domain Bearing Fault Diagnosis via Multi-Pseudo Domain Augmented Adversarial Domain-Invariant Learning</div>
+                        <div class="pub-authors">Y. Bi, R. Fu, C. Jiang, G. Han, Z. Yin, L. Zhao, <strong>Q. Li</strong></div>
+                        <div class="pub-venue">IEEE Internet of Things Journal</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-calendar"></i>2024</span>
+                            <span><i class="fas fa-layer-group"></i>Vol. 11, No. 19</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J10]</div>
+                        <div class="pub-title">AoI-Aware Waveform Design for Cooperative Joint Radar-Communications Systems with Online Prediction of Radar Target Property</div>
+                        <div class="pub-authors">Z. Li, F. Hu, <strong>Q. Li</strong>, Z. Ling, Z. Chang, Timo Hamalainen</div>
+                        <div class="pub-venue">IEEE Transactions on Communications</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-calendar"></i>2024</span>
+                            <span><i class="fas fa-layer-group"></i>Vol. 72, No. 10</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J11]</div>
+                        <div class="pub-title">IRS-Assisted High-Speed Train Communications: Performance Analysis and Optimal Configuration</div>
+                        <div class="pub-authors">M. Gao, B. Ai, Y. Niu, <strong>Q. Li</strong>, Z. Han, Z. Zhong, X. Shen, N. Wang</div>
+                        <div class="pub-venue">IEEE Internet of Things Journal</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-calendar"></i>2023</span>
+                            <span><i class="fas fa-layer-group"></i>Vol. 10, No. 21</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J12]</div>
+                        <div class="pub-title">ShuttleBus: Dense Packet Assembling with QUIC Multi-Stream Independent Transfer for Massive IoT</div>
+                        <div class="pub-authors">B. He, J. Wang, Q. Qi, Q. Ye, <strong>Q. Li</strong>, J. Liao, X. Shen</div>
+                        <div class="pub-venue">IEEE Transactions on Mobile Computing</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-calendar"></i>2023</span>
+                            <span><i class="fas fa-book"></i>Early Access</span>
+                            <span><i class="fas fa-hashtag"></i>DOI: 10.1109/TMC.2023.3345898</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J13]</div>
+                        <div class="pub-title">Adaptive Resource Allocation for Diverse Safety Message Transmissions in Vehicular Networks</div>
+                        <div class="pub-authors">J. Chen, H. Wu, P. Yang, F. Lyu, <strong>Q. Li</strong>, X. Shen</div>
+                        <div class="pub-venue">IEEE Transactions on Intelligent Transportation Systems</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-calendar"></i>2021</span>
+                            <span><i class="fas fa-layer-group"></i>Vol. 23, No. 8, pp. 13482-13497</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J14]</div>
+                        <div class="pub-title">Approximate maximum likelihood serial decision-feedback equaliser and Tomlinson–Harashima pre-equalisation</div>
+                        <div class="pub-authors">L. Song, A. Hjorungnes, MR Bhatnagar, <strong>Q. Li</strong></div>
+                        <div class="pub-venue">IET Communications</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-calendar"></i>2009</span>
+                            <span><i class="fas fa-layer-group"></i>Vol. 3, No. 2, pp. 223-231</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J15]</div>
+                        <div class="pub-title">Multi-Tier Multi-Resource Allocation for Latency-Aware Applications in Mobile Edge Networks: A DRL-Based Approach</div>
+                        <div class="pub-authors">M. Sun, X. Xu, H. Peng, <strong>Q. Li</strong>, P. Zhang, X. Shen</div>
+                        <div class="pub-venue">IEEE Transactions on Vehicular Technology</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-file-alt"></i>Under Review</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[J16]</div>
+                        <div class="pub-title">Group Transmission: A Protocol for Mobile VR Video Transmission</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, W. Zhuang, M. Li, C. Zhou, X. Shen</div>
+                        <div class="pub-venue">IEEE Transactions on Mobile Computing</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-file-alt"></i>Under Review</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="publication-section">
+                <h2 class="section-title">Selected Conference Papers</h2>
+                <div class="publication-list">
+                    <div class="publication-item">
+                        <div class="pub-index">[C1]</div>
+                        <div class="pub-title">Digital Twin-enabled Channel Access Control in Industrial IoT</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, F. Hu</div>
+                        <div class="pub-venue">IEEE/CIC ICCC 2024</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-award"></i>Best Paper Award</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C2]</div>
+                        <div class="pub-title">Digital twin-enabled Channel Access and Power Control Optimization in Industrial IoT</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, M. Li, N. Zhang, F. Hu</div>
+                        <div class="pub-venue">IEEE Globecom 2024</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C3]</div>
+                        <div class="pub-title">Digital twin-based Intrusion Detection in Smart Grid: A Multi-kernel Knowledge Replay Approach</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, M. Li, J. Kang, F. Hu</div>
+                        <div class="pub-venue">IEEE Globecom 2024</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C4]</div>
+                        <div class="pub-title">End-to-end Flow Scheduling Optimization for Industrial 5G and TSN Integrated Networks</div>
+                        <div class="pub-authors">H. Liu, M. Li, F. Gu, <strong>Q. Li</strong>, W. Zhang, S. Guo</div>
+                        <div class="pub-venue">IEEE Globecom 2024</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C5]</div>
+                        <div class="pub-title">Sensing-Communication Trade-off in Vehicular Network with Spatially-Spread OTFS Modulation: An AoI-and-CRB-based Power Allocation Scheme</div>
+                        <div class="pub-authors">Z. Li, F. Hu, Z. Ling, S. Song, <strong>Q. Li</strong></div>
+                        <div class="pub-venue">IEEE Globecom 2024</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C6]</div>
+                        <div class="pub-title">Energy Consumption Prediction for Manufacturing in Industrial IoT Based on Heterogeneous GNN</div>
+                        <div class="pub-authors">X. Su, M. Li, <strong>Q. Li</strong>, C. Chen, S. Guo, X. Wang</div>
+                        <div class="pub-venue">IEEE/CIC ICCC 2024</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C7]</div>
+                        <div class="pub-title">Intelligent Congestion Control in QUIC for Reliable E2E Communication Network: A Digital Twin-based Approach</div>
+                        <div class="pub-authors">T. Yang, <strong>Q. Li</strong>, F. Hu</div>
+                        <div class="pub-venue">IEEE/CIC ICCC Workshop 2024</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C8]</div>
+                        <div class="pub-title">ISL-based Multi-Satellite Collaborative Computation Offloading and Resource Allocation in ISTN</div>
+                        <div class="pub-authors">Y. Zhang, J. He, N. Cheng, R. Sun, <strong>Q. Li</strong>, W. Quan</div>
+                        <div class="pub-venue">IEEE Globecom Workshop 2024</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C9]</div>
+                        <div class="pub-title">Optimizing Information Propagation for Blockchain-empowered Mobile AIGC: A Graph Attention Network Approach</div>
+                        <div class="pub-authors">J. Liao, J. Wen, J. Kang, Y. Zhang, J. Du, <strong>Q. Li</strong>, W. Zhang, D. Yang</div>
+                        <div class="pub-venue">IWCMC 2024</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C10]</div>
+                        <div class="pub-title">Reliable Federated Learning in Vehicular Communication Networks: An Intelligent Vehicle Selection and Resource Optimization Scheme</div>
+                        <div class="pub-authors">T. Yang, <strong>Q. Li</strong>, N. Zhang, L. Zhao, F. Hu</div>
+                        <div class="pub-venue">IEEE VTC 2024 Spring</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C11]</div>
+                        <div class="pub-title">Online Traffic Prediction in Multi-RAT Heterogeneous Network: A User-Cybertwin Asynchronous Learning Approach</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, W. Wen, W. Zhang, X. Shen</div>
+                        <div class="pub-venue">IEEE PIMRC 2023</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C12]</div>
+                        <div class="pub-title">Optimizing Waveform Power Allocation in Cognitive DFRC Systems: An Individual User AoI Preference-Based Approach</div>
+                        <div class="pub-authors">Z. Li, F. Hu, <strong>Q. Li</strong>, Z. Chang, T. Hamalainen</div>
+                        <div class="pub-venue">IEEE Globecom 2023</div>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-file-alt"></i>Under Review</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C13]</div>
+                        <div class="pub-title">Poisson Game with Population Uncertainty for Mobile Edge Computing Networks</div>
+                        <div class="pub-authors">L. Hui, W. Yang, <strong>Q. Li</strong>, W. Zhang</div>
+                        <div class="pub-venue">IEEE/CIC ICCC 2022</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C14]</div>
+                        <div class="pub-title">QoE-driven Mobile 360 Video Streaming: Predictive View Generation and Dynamic Tile Selection</div>
+                        <div class="pub-authors">Z. Huang, P. Yang, N. Zhang, F. Lyu, <strong>Q. Li</strong>, W. Wen, X. Shen</div>
+                        <div class="pub-venue">IEEE/CIC ICCC 2021</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C15]</div>
+                        <div class="pub-title">Covert communication via dynamic spectrum control-assisted transmission scheme</div>
+                        <div class="pub-authors">C. Li, Z. Li, H. Wu, <strong>Q. Li</strong>, L. Guan, X. Shen</div>
+                        <div class="pub-venue">IEEE Globecom 2021</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C16]</div>
+                        <div class="pub-title">Joint Distributed Beamforming and Backscatter Cooperation for UAV-Assisted WPSNs</div>
+                        <div class="pub-authors">Z. Mao, F. Hu, <strong>Q. Li</strong>, W. Wen, X. Shen</div>
+                        <div class="pub-venue">IEEE Globecom 2021</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C17]</div>
+                        <div class="pub-title">Channel-based Sybil Detection in Industrial WSNs: A Multi-kernel Approach</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, K. Zhang, M. Cheffena, X. Shen</div>
+                        <div class="pub-venue">IEEE Globecom 2017</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C18]</div>
+                        <div class="pub-title">Channel-based Sampling Rate and Queuing State Control in Delay-Constraint Industrial WSNs</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, K. Zhang, M. Cheffena, X. Shen</div>
+                        <div class="pub-venue">IEEE Globecom 2017</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C19]</div>
+                        <div class="pub-title">A Measurement-based Boundary Estimation Approach for Localization in Industrial WSNs</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, K. Zhang, M. Cheffena, X. Shen</div>
+                        <div class="pub-venue">IEEE ICC 2017</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C20]</div>
+                        <div class="pub-title">Exploiting Dispersive Power Gain and Delay Spread for Sybil Detection in Industrial WSNs</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, K. Zhang, M. Cheffena, X. Shen</div>
+                        <div class="pub-venue">IEEE/CIC ICCC 2016</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C21]</div>
+                        <div class="pub-title">Power Delay Profile Analysis and Modelling for Industrial Indoor Channel</div>
+                        <div class="pub-authors">Y. Ai, M. Cheffena, <strong>Q. Li</strong></div>
+                        <div class="pub-venue">EuCAP 2015</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C22]</div>
+                        <div class="pub-title">Radio Frequency Measurements and Capacity Analysis for Industrial Indoor Environments</div>
+                        <div class="pub-authors">Y. Ai, M. Cheffena, <strong>Q. Li</strong></div>
+                        <div class="pub-venue">EuCAP 2015</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C23]</div>
+                        <div class="pub-title">Performance Evaluation of the GCR Block ACK Mechanism in IEEE 802.11aa Networks</div>
+                        <div class="pub-authors"><strong>Q. Li</strong>, L. Jiao, F. Y. Li</div>
+                        <div class="pub-venue">European Wireless 2013</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-index">[C24]</div>
+                        <div class="pub-title">Feedback Control Game for Channel State Information in Wireless Networks</div>
+                        <div class="pub-authors">L. Song, Z. Han, <strong>Q. Li</strong>, B. Jiao</div>
+                        <div class="pub-venue">IEEE ICC 2011</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <a href="#" class="back-to-top" title="Back to Top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</body>
+</html> 
