@@ -5,7 +5,7 @@
     --text-color: #1e293b;
     --card-background: #ffffff;
     --sidebar-color: #1e293b;
-    --sidebar-width: 300px;
+    --sidebar-width: 240px;
     --sidebar-active: rgba(255, 255, 255, 0.1);
     --transition: all 0.3s ease;
 }
@@ -30,7 +30,7 @@ body {
     background: linear-gradient(135deg, var(--sidebar-color) 0%, #2c3e50 100%);
     color: #fff;
     width: var(--sidebar-width);
-    padding: 2rem;
+    padding: 1.5rem;
     position: fixed;
     height: 100vh;
     transition: var(--transition);
@@ -41,9 +41,9 @@ body {
 }
 
 .sidebar h1 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -53,18 +53,18 @@ body {
 .sidebar nav {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
     flex: 1;
 }
 
 .sidebar nav a {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    padding: 0.9rem 1.2rem;
-    border-radius: 12px;
+    padding: 0.75rem 0.9rem;
+    border-radius: 8px;
     transition: var(--transition);
     font-weight: 500;
     letter-spacing: 0.3px;
@@ -339,4 +339,4 @@ body {
 
 .card {
     animation: fadeIn 0.5s ease-out forwards;
-} 
+}

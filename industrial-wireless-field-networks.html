@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Wireless &amp; Field Networks - Qihao Li's Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .topic-shell {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .topic-hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        .topic-kicker {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+
+        .topic-lead {
+            font-size: 1rem;
+            line-height: 1.65;
+            color: var(--text-color);
+        }
+
+        .network-visual {
+            position: relative;
+            min-height: 330px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(37, 99, 235, 0.18);
+            background:
+                linear-gradient(90deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px),
+                linear-gradient(135deg, #eef6ff 0%, #f8fbff 60%, #eff6ff 100%);
+            background-size: 36px 36px, 36px 36px, auto;
+        }
+
+        .network-visual::before,
+        .network-visual::after {
+            content: "";
+            position: absolute;
+            inset: 24px;
+            border: 1px dashed rgba(37, 99, 235, 0.22);
+            border-radius: 50%;
+            animation: radarPulse 4.5s ease-in-out infinite;
+        }
+
+        .network-visual::after {
+            inset: 64px;
+            animation-delay: 1.2s;
+        }
+
+        .factory-block {
+            position: absolute;
+            left: 28px;
+            bottom: 28px;
+            width: 135px;
+            height: 82px;
+            border-radius: 8px;
+            background: #1e3a5f;
+            box-shadow: 0 12px 22px rgba(30, 58, 95, 0.18);
+        }
+
+        .factory-block::before {
+            content: "";
+            position: absolute;
+            left: 16px;
+            top: -38px;
+            width: 32px;
+            height: 38px;
+            background: #315f8f;
+            border-radius: 6px 6px 0 0;
+            box-shadow: 42px 14px 0 #315f8f, 82px -4px 0 #315f8f;
+        }
+
+        .factory-window {
+            position: absolute;
+            width: 18px;
+            height: 14px;
+            border-radius: 3px;
+            background: #9dd3ff;
+            left: 18px;
+            top: 22px;
+            box-shadow: 30px 0 0 #9dd3ff, 60px 0 0 #9dd3ff, 90px 0 0 #9dd3ff, 15px 26px 0 #9dd3ff, 45px 26px 0 #9dd3ff, 75px 26px 0 #9dd3ff;
+            animation: windowBlink 2.8s ease-in-out infinite;
+        }
+
+        .sensor-node {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.12);
+            z-index: 2;
+        }
+
+        .sensor-node::after {
+            content: attr(data-label);
+            position: absolute;
+            left: 50%;
+            top: 24px;
+            transform: translateX(-50%);
+            color: #1e3a5f;
+            font-size: 0.72rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .node-a { left: 205px; top: 62px; }
+        .node-b { right: 82px; top: 98px; animation-delay: 0.4s; }
+        .node-c { left: 235px; bottom: 60px; animation-delay: 0.8s; }
+        .node-d { right: 52px; bottom: 54px; animation-delay: 1.2s; }
+
+        .link-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.55), transparent);
+            transform-origin: left center;
+            z-index: 1;
+        }
+
+        .line-1 {
+            width: 190px;
+            left: 110px;
+            top: 118px;
+            transform: rotate(-18deg);
+        }
+
+        .line-2 {
+            width: 210px;
+            left: 145px;
+            top: 196px;
+            transform: rotate(12deg);
+        }
+
+        .line-3 {
+            width: 160px;
+            right: 76px;
+            top: 176px;
+            transform: rotate(83deg);
+        }
+
+        .packet {
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #16a34a;
+            box-shadow: 0 0 12px rgba(22, 163, 74, 0.7);
+            z-index: 3;
+            animation: packetMove 3.6s linear infinite;
+        }
+
+        .packet-1 { left: 150px; top: 115px; }
+        .packet-2 { left: 205px; top: 195px; animation-delay: 1.1s; }
+        .packet-3 { right: 96px; top: 155px; animation-delay: 2.1s; }
+
+        .interference {
+            position: absolute;
+            right: 120px;
+            top: 38px;
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            border: 2px solid rgba(239, 68, 68, 0.4);
+            animation: interferencePulse 2.4s ease-in-out infinite;
+        }
+
+        .interference::before,
+        .interference::after {
+            content: "";
+            position: absolute;
+            inset: 12px;
+            border-radius: 50%;
+            border: 2px solid rgba(239, 68, 68, 0.34);
+        }
+
+        .interference::after {
+            inset: 24px;
+            background: rgba(239, 68, 68, 0.52);
+        }
+
+        .visual-caption {
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            top: 18px;
+            display: flex;
+            justify-content: space-between;
+            gap: 0.75rem;
+            color: #315f8f;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .visual-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: rgba(255, 255, 255, 0.84);
+            border: 1px solid rgba(37, 99, 235, 0.16);
+            border-radius: 999px;
+            padding: 0.3rem 0.6rem;
+        }
+
+        .topic-summary-card {
+            background: rgba(37, 99, 235, 0.06);
+            border: 1px solid rgba(37, 99, 235, 0.14);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .topic-summary-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        .signal-list {
+            list-style: none;
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        .signal-list li {
+            display: flex;
+            gap: 0.55rem;
+            align-items: flex-start;
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+
+        .signal-list i {
+            color: var(--primary-color);
+            margin-top: 0.2rem;
+        }
+
+        .section-block {
+            margin-top: 1.5rem;
+        }
+
+        .section-block h2 {
+            color: var(--primary-color);
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .visual-strip {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .metric-tile {
+            position: relative;
+            min-height: 92px;
+            border-radius: 8px;
+            background: #fff;
+            border: 1px solid rgba(37, 99, 235, 0.14);
+            padding: 0.85rem;
+            overflow: hidden;
+        }
+
+        .metric-tile strong {
+            position: relative;
+            z-index: 1;
+            display: block;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .metric-tile span {
+            position: relative;
+            z-index: 1;
+            color: #475569;
+            font-size: 0.78rem;
+            line-height: 1.35;
+        }
+
+        .mini-wave {
+            position: absolute;
+            left: -20px;
+            right: -20px;
+            bottom: 18px;
+            height: 28px;
+            background: repeating-linear-gradient(90deg, transparent 0 12px, rgba(37, 99, 235, 0.18) 12px 18px);
+            clip-path: polygon(0 55%, 10% 20%, 20% 62%, 30% 32%, 40% 70%, 50% 18%, 60% 56%, 70% 35%, 80% 64%, 90% 25%, 100% 55%, 100% 100%, 0 100%);
+            animation: drift 4s linear infinite;
+        }
+
+        .mini-bars {
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 14px;
+            height: 34px;
+            display: flex;
+            align-items: flex-end;
+            gap: 5px;
+        }
+
+        .mini-bars i {
+            flex: 1;
+            display: block;
+            border-radius: 3px 3px 0 0;
+            background: rgba(37, 99, 235, 0.28);
+            animation: barRise 2.4s ease-in-out infinite;
+        }
+
+        .mini-bars i:nth-child(2) { animation-delay: 0.2s; }
+        .mini-bars i:nth-child(3) { animation-delay: 0.4s; }
+        .mini-bars i:nth-child(4) { animation-delay: 0.6s; }
+        .mini-bars i:nth-child(5) { animation-delay: 0.8s; }
+
+        .mini-tail {
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 16px;
+            height: 42px;
+            border-bottom: 2px solid rgba(37, 99, 235, 0.28);
+            border-left: 2px solid rgba(37, 99, 235, 0.28);
+        }
+
+        .mini-tail::after {
+            content: "";
+            position: absolute;
+            left: 2px;
+            right: 0;
+            bottom: 2px;
+            height: 30px;
+            background: rgba(22, 163, 74, 0.2);
+            clip-path: polygon(0 82%, 18% 68%, 35% 60%, 52% 42%, 70% 28%, 88% 16%, 100% 10%, 100% 100%, 0 100%);
+            animation: tailTame 3s ease-in-out infinite;
+        }
+
+        .mini-shield {
+            position: absolute;
+            right: 16px;
+            bottom: 14px;
+            width: 42px;
+            height: 48px;
+            background: rgba(37, 99, 235, 0.18);
+            clip-path: polygon(50% 0, 92% 18%, 84% 72%, 50% 100%, 16% 72%, 8% 18%);
+        }
+
+        .mini-shield::after {
+            content: "";
+            position: absolute;
+            inset: 14px 13px 12px;
+            background: rgba(22, 163, 74, 0.55);
+            clip-path: polygon(14% 52%, 38% 78%, 88% 18%, 100% 30%, 39% 96%, 0 62%);
+        }
+
+        .synthesis-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .synthesis-card,
+        .paper-card,
+        .insight-card {
+            background: rgba(37, 99, 235, 0.05);
+            border: 1px solid rgba(37, 99, 235, 0.12);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .synthesis-card h3,
+        .paper-card h3,
+        .insight-card h3 {
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .synthesis-card p,
+        .paper-card p,
+        .insight-card p {
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        .paper-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .paper-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.65rem 0;
+        }
+
+        .paper-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #475569;
+            background: #fff;
+            border: 1px solid rgba(37, 99, 235, 0.12);
+            border-radius: 999px;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        .paper-card ul,
+        .insight-card ul {
+            margin: 0.65rem 0 0 1.1rem;
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        .paper-card li,
+        .insight-card li {
+            margin-bottom: 0.35rem;
+        }
+
+        .paper-card {
+            display: grid;
+            grid-template-columns: 82px 1fr;
+            gap: 0.95rem;
+            align-items: start;
+        }
+
+        .paper-body {
+            min-width: 0;
+        }
+
+        .paper-visual {
+            width: 82px;
+            height: 82px;
+            border-radius: 8px;
+            background: #fff;
+            border: 1px solid rgba(37, 99, 235, 0.14);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .paper-visual::before {
+            content: "";
+            position: absolute;
+            inset: 11px;
+            border-radius: 50%;
+            border: 2px solid rgba(37, 99, 235, 0.22);
+        }
+
+        .visual-security::after {
+            content: "";
+            position: absolute;
+            left: 27px;
+            top: 18px;
+            width: 28px;
+            height: 34px;
+            background: rgba(37, 99, 235, 0.32);
+            clip-path: polygon(50% 0, 92% 18%, 84% 72%, 50% 100%, 16% 72%, 8% 18%);
+            animation: shieldScan 2.6s ease-in-out infinite;
+        }
+
+        .visual-delay::after {
+            content: "";
+            position: absolute;
+            left: 13px;
+            right: 13px;
+            bottom: 18px;
+            height: 34px;
+            background: rgba(37, 99, 235, 0.26);
+            clip-path: polygon(0 78%, 18% 52%, 36% 66%, 54% 30%, 72% 48%, 100% 20%, 100% 100%, 0 100%);
+            animation: tailTame 2.8s ease-in-out infinite;
+        }
+
+        .visual-tail::after {
+            content: "";
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #16a34a;
+            left: 15px;
+            top: 53px;
+            animation: dotPath 3s ease-in-out infinite;
+        }
+
+        .flow {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.75rem;
+            align-items: stretch;
+        }
+
+        .flow-step {
+            position: relative;
+            background: #fff;
+            border: 1px solid rgba(37, 99, 235, 0.16);
+            border-radius: 8px;
+            padding: 0.85rem;
+            min-height: 125px;
+            overflow: hidden;
+        }
+
+        .flow-step::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            animation: flowLine 3s linear infinite;
+        }
+
+        .flow-step strong {
+            display: block;
+            color: var(--primary-color);
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        .flow-step p {
+            font-size: 0.86rem;
+            line-height: 1.45;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-top: 1.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes radarPulse {
+            0%, 100% { opacity: 0.25; transform: scale(0.92); }
+            50% { opacity: 0.65; transform: scale(1.03); }
+        }
+
+        @keyframes windowBlink {
+            0%, 100% { opacity: 0.75; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes interferencePulse {
+            0%, 100% { transform: scale(0.86); opacity: 0.45; }
+            50% { transform: scale(1.08); opacity: 0.85; }
+        }
+
+        @keyframes packetMove {
+            0% { transform: translate(0, 0); opacity: 0; }
+            12% { opacity: 1; }
+            60% { opacity: 1; }
+            100% { transform: translate(135px, -36px); opacity: 0; }
+        }
+
+        @keyframes drift {
+            from { transform: translateX(0); }
+            to { transform: translateX(36px); }
+        }
+
+        @keyframes barRise {
+            0%, 100% { height: 20%; }
+            50% { height: 92%; }
+        }
+
+        @keyframes tailTame {
+            0%, 100% { transform: scaleY(0.72); transform-origin: bottom; }
+            50% { transform: scaleY(1); transform-origin: bottom; }
+        }
+
+        @keyframes shieldScan {
+            0%, 100% { transform: translateY(0); opacity: 0.7; }
+            50% { transform: translateY(7px); opacity: 1; }
+        }
+
+        @keyframes dotPath {
+            0% { transform: translate(0, 0); opacity: 0.55; }
+            50% { transform: translate(22px, -28px); opacity: 1; }
+            100% { transform: translate(48px, -8px); opacity: 0.65; }
+        }
+
+        @keyframes flowLine {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+        }
+
+        @media (max-width: 900px) {
+            .topic-hero,
+            .synthesis-grid,
+            .visual-strip,
+            .flow {
+                grid-template-columns: 1fr;
+            }
+
+            .network-visual {
+                min-height: 260px;
+            }
+
+            .paper-card {
+                grid-template-columns: 1fr;
+            }
+
+            .paper-visual {
+                width: 100%;
+                height: 78px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>Qihao Li</h1>
+        <nav>
+            <a href="index.html"><i class="fas fa-user"></i> About</a>
+            <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
+            <a href="research.html" class="active"><i class="fas fa-microscope"></i> Research</a>
+            <a href="publications.html"><i class="fas fa-book"></i> Publications</a>
+            <a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a>
+            <a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        <div class="topic-shell">
+            <section class="card">
+                <div class="topic-hero">
+                    <div>
+                        <div class="topic-kicker">Industrial IoT Research Thread</div>
+                        <h1 class="topic-title">Industrial Wireless &amp; Field Networks</h1>
+                        <p class="topic-lead">
+                            This research line studies how harsh industrial wireless channels can be measured, modeled, and converted into protocol decisions for reliable field networking. Across the three papers, the common idea is to treat the channel as operational context: channel impulse responses, level crossing behavior, hidden channel states, and packet sojourn dynamics are used to improve security, delay control, and latency-tail performance in industrial WSN and IIoT systems.
+                        </p>
+                    </div>
+                    <div class="network-visual" aria-label="Animated industrial wireless network diagram">
+                        <div class="visual-caption">
+                            <span class="visual-chip"><i class="fas fa-industry"></i> Field network</span>
+                            <span class="visual-chip"><i class="fas fa-bolt"></i> Interference</span>
+                        </div>
+                        <div class="interference"></div>
+                        <div class="link-line line-1"></div>
+                        <div class="link-line line-2"></div>
+                        <div class="link-line line-3"></div>
+                        <div class="factory-block"><span class="factory-window"></span></div>
+                        <div class="sensor-node node-a" data-label="SN"></div>
+                        <div class="sensor-node node-b" data-label="HC"></div>
+                        <div class="sensor-node node-c" data-label="AGV"></div>
+                        <div class="sensor-node node-d" data-label="Edge"></div>
+                        <div class="packet packet-1"></div>
+                        <div class="packet packet-2"></div>
+                        <div class="packet packet-3"></div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2>Integrated View</h2>
+                    <div class="synthesis-grid">
+                        <div class="synthesis-card">
+                            <h3>Channel as Evidence</h3>
+                            <p>Power gain, delay spread, level crossing rate, and hidden fading duration provide compact evidence about the physical environment, device behavior, and channel availability.</p>
+                        </div>
+                        <div class="synthesis-card">
+                            <h3>Models as Control Tools</h3>
+                            <p>Multi-kernel learning, phase-type semi-Markov models, and hidden semi-Markov models translate channel observations into detection, back-off, and latency-taming decisions.</p>
+                        </div>
+                        <div class="synthesis-card">
+                            <h3>Reliability Under Harsh Conditions</h3>
+                            <p>The resulting mechanisms target industrial constraints: low delay, bounded sojourn time, robustness to interference, and security without heavy authentication overhead.</p>
+                        </div>
+                    </div>
+                    <div class="visual-strip">
+                        <div class="metric-tile">
+                            <strong>Channel Features</strong>
+                            <span>Power gain, delay spread, fading duration</span>
+                            <div class="mini-wave"></div>
+                        </div>
+                        <div class="metric-tile">
+                            <strong>Access Dynamics</strong>
+                            <span>Back-off, queue state, channel sensing</span>
+                            <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div>
+                        </div>
+                        <div class="metric-tile">
+                            <strong>Latency Tail</strong>
+                            <span>First passage probability and bounded sojourn time</span>
+                            <div class="mini-tail"></div>
+                        </div>
+                        <div class="metric-tile">
+                            <strong>Attack Detection</strong>
+                            <span>Physical-layer evidence for Sybil defense</span>
+                            <div class="mini-shield"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2>Paper Synthesis</h2>
+                    <div class="paper-grid">
+                        <article class="paper-card">
+                            <div class="paper-visual visual-security" aria-hidden="true"></div>
+                            <div class="paper-body">
+                                <h3>Exploiting Dispersive Power Gain and Delay Spread for Sybil Detection in Industrial WSNs: A Multi-Kernel Approach</h3>
+                                <div class="paper-meta">
+                                    <span><i class="fas fa-calendar"></i>2019</span>
+                                    <span><i class="fas fa-book"></i>IEEE Transactions on Wireless Communications</span>
+                                    <span><i class="fas fa-shield-alt"></i>Security</span>
+                                </div>
+                                <p>
+                                    This work addresses Sybil attacks in industrial WSNs without adding authentication overhead to the transmission frame. It extracts channel-vectors from power gain and delay spread in the channel impulse response, then uses a Multi-Kernel Expectation Maximization scheme to separate malicious packets from benign ones.
+                                </p>
+                                <ul>
+                                    <li>Uses channel diversity and spatial variance as a physical-layer fingerprint.</li>
+                                    <li>Combines multiple kernels with optimized weights to adapt to industrial propagation conditions.</li>
+                                    <li>Uses Gap statistics and EM to estimate and refine the number of malicious identities.</li>
+                                    <li>Shows resilience under noise, interference, and increasing numbers of Sybil attackers.</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="paper-card">
+                            <div class="paper-visual visual-delay" aria-hidden="true"></div>
+                            <div class="paper-body">
+                                <h3>Channel-based Optimal Back-off Delay Control in Delay-Constrained Industrial WSNs</h3>
+                                <div class="paper-meta">
+                                    <span><i class="fas fa-calendar"></i>2020</span>
+                                    <span><i class="fas fa-book"></i>IEEE Transactions on Wireless Communications</span>
+                                    <span><i class="fas fa-stopwatch"></i>Delay Control</span>
+                                </div>
+                                <p>
+                                    This work develops an Optimal Back-off Delay Control scheme for delay-constrained industrial WSNs. It evaluates channel impairments through the level crossing rate of the received signal and models packet back-off delay with a phase-type semi-Markov model.
+                                </p>
+                                <ul>
+                                    <li>Links harsh industrial channel behavior to packet sojourn time in sensor nodes.</li>
+                                    <li>Uses queuing theory and KL divergence to align delay distribution with packet arrival pressure.</li>
+                                    <li>Renews the objective function in each transmission round under a delay constraint.</li>
+                                    <li>Reduces total time in the sensor node while adapting to changing node density and channel crossing behavior.</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="paper-card">
+                            <div class="paper-visual visual-tail" aria-hidden="true"></div>
+                            <div class="paper-body">
+                                <h3>Channel-Aware Latency Tail Taming in Industrial IoT</h3>
+                                <div class="paper-meta">
+                                    <span><i class="fas fa-calendar"></i>2023</span>
+                                    <span><i class="fas fa-book"></i>IEEE Transactions on Wireless Communications</span>
+                                    <span><i class="fas fa-chart-area"></i>Latency Tail</span>
+                                </div>
+                                <p>
+                                    This work focuses on the tail of packet sojourn time, not only average latency. The proposed Optimal Transmission Latency Taming scheme learns hidden channel states with a hidden semi-Markov model and uses a time-sensitive model to choose packet back-off sojourn duration.
+                                </p>
+                                <ul>
+                                    <li>Models fading duration as the sojourn duration of hidden channel states.</li>
+                                    <li>Uses EM-based parameter learning to improve hidden channel-state detection.</li>
+                                    <li>Relates first passage probability to the chance of successful delivery under a given back-off duration.</li>
+                                    <li>Tames latency distribution tails within quantifiable limits under time-varying industrial channels.</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2>Methodological Progression</h2>
+                    <div class="flow">
+                        <div class="flow-step">
+                            <strong>1. Observe the Channel</strong>
+                            <p>Collect channel impulse response, power gain, delay spread, level crossing behavior, and busy/idle channel observations.</p>
+                        </div>
+                        <div class="flow-step">
+                            <strong>2. Infer Hidden Conditions</strong>
+                            <p>Use kernel learning, semi-Markov structures, or HSMM-based learning to infer security state, channel state, or delay behavior.</p>
+                        </div>
+                        <div class="flow-step">
+                            <strong>3. Optimize Access Decisions</strong>
+                            <p>Adjust detection boundaries, back-off delay, or transmission timing according to channel and queue dynamics.</p>
+                        </div>
+                        <div class="flow-step">
+                            <strong>4. Protect Field Operation</strong>
+                            <p>Improve reliability, bounded latency, and malicious-packet discrimination for industrial sensing and control loops.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2>Research Implications</h2>
+                    <div class="insight-card">
+                        <h3>From Channel Awareness to Field Intelligence</h3>
+                        <p>
+                            The three papers form a coherent field-networking research direction: industrial wireless systems should not treat channel dynamics as only a disturbance. Instead, channel dynamics can become measurable intelligence for security, scheduling, and low-latency control. This is especially important for factories, process automation, and mission-critical sensing where retransmission delays, channel access failures, and forged identities can directly affect safety and production continuity.
+                        </p>
+                        <ul>
+                            <li>Security: channel-vector learning supports Sybil detection without heavy frame-level authentication.</li>
+                            <li>Protocol control: channel-based back-off optimization controls packet residence time in sensor nodes.</li>
+                            <li>Latency assurance: hidden channel learning and first passage probability help bound tail latency.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a class="back-link" href="research.html#iot"><i class="fas fa-arrow-left"></i> Back to Industrial IoT</a>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

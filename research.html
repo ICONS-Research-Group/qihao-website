@@ -40,6 +40,27 @@
             background: rgba(37, 99, 235, 0.05);
             padding: 1rem;
             border-radius: 8px;
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .highlight-card-link {
+            display: block;
+            border: 1px solid rgba(37, 99, 235, 0.14);
+        }
+        .highlight-card-link:hover {
+            background: rgba(37, 99, 235, 0.1);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        .highlight-card-link .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.65rem;
         }
         .highlight-card h4 {
             color: var(--primary-color);
@@ -87,12 +108,13 @@
                     </div>
                     <div class="research-details">
                         <p>Our <strong>Industrial IoT</strong> research addresses communication, control, and trust in factory and mission-critical environments where OT meets IT. We design wireless stacks, resource allocation, and cyber-physical mechanisms that improve determinism, throughput, and safety under harsh interference and mobility, bridging shop-floor sensing/actuation with edge and cloud analytics. Representative themes include:</p>
-                        
+
                         <div class="research-highlights">
-                            <div class="highlight-card">
+                            <a class="highlight-card highlight-card-link" href="industrial-wireless-field-networks.html">
                                 <h4><i class="fas fa-industry"></i> Industrial Wireless &amp; Field Networks</h4>
                                 <p>Industrial WSNs, MAC and scheduling, channel access, and protocol design for reliable machine-to-machine traffic on the plant floor.</p>
-                            </div>
+                                <span class="read-more">View paper synthesis <i class="fas fa-arrow-right"></i></span>
+                            </a>
                             <div class="highlight-card">
                                 <h4><i class="fas fa-bolt"></i> Deterministic &amp; Low-Latency Communication</h4>
                                 <p>Latency-aware and channel-aware design—taming delay tails, supporting real-time loops, and coexistence with legacy industrial systems.</p>
@@ -136,7 +158,7 @@
                     </div>
                     <div class="research-details">
                         <p>Our research on Ambient IoT targets networks of ultra-low-power, often battery-free devices that blend into the environment and operate at massive scale. We study how to enable reliable sensing and connectivity with minimal energy and spectrum use. A growing thread of our work is <strong>metamaterial passive IoT</strong>—using engineered electromagnetic surfaces and structures to passively modulate, steer, or sense RF without active radios, with emphasis on:</p>
-                        
+
                         <div class="research-highlights">
                             <div class="highlight-card">
                                 <h4><i class="fas fa-battery-empty"></i> Ultra-Low Power &amp; Harvesting</h4>
@@ -205,6 +227,47 @@
                 </div>
             </div>
 
+            <div id="space-air-ground" class="research-area">
+                <h3>Space-Air-Ground Integrated Networks</h3>
+                <div class="research-content">
+                    <div class="research-image">
+                        <img src="images/wireless.jpg" alt="Space-Air-Ground Integrated Networks">
+                    </div>
+                    <div class="research-details">
+                        <p>Our research on <strong>space-air-ground integrated networks</strong> focuses on seamless connectivity across satellite, aerial, and terrestrial infrastructures. This direction studies how heterogeneous network segments can cooperate to provide resilient coverage, low-latency service continuity, and intelligent resource orchestration for future 6G, IoT, and vehicular applications.</p>
+                        <div class="research-highlights">
+                            <a class="highlight-card highlight-card-link" href="satellite-terrestrial-integration.html">
+                                <h4><i class="fas fa-satellite"></i> Satellite-Terrestrial Integration</h4>
+                                <p>Hybrid satellite and terrestrial access for wide-area coverage, emergency connectivity, and service continuity in remote or high-mobility scenarios.</p>
+                                <span class="read-more">View paper synthesis <i class="fas fa-arrow-right"></i></span>
+                            </a>
+                            <div class="highlight-card">
+                                <h4><i class="fas fa-plane"></i> UAV-Assisted Networking</h4>
+                                <p>Aerial relays, UAV base stations, and adaptive air-ground links for flexible deployment, traffic offloading, and temporary network augmentation.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="fas fa-route"></i> Cross-Domain Routing &amp; Mobility</h4>
+                                <p>Mobility-aware routing, handover, and session continuity across space, aerial, and ground segments with heterogeneous link dynamics.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="fas fa-brain"></i> Intelligent Resource Orchestration</h4>
+                                <p>AI-assisted spectrum, computing, caching, and power allocation for multi-layer networks with diverse service requirements.</p>
+                            </div>
+                        </div>
+
+                        <div class="research-publications">
+                            <h4>Research Directions</h4>
+                            <ul>
+                                <li>Integrated satellite-UAV-terrestrial networking architectures for ubiquitous connectivity</li>
+                                <li>Resource allocation and service orchestration across heterogeneous network layers</li>
+                                <li>Mobility management, handover, and low-latency routing for non-terrestrial networks</li>
+                                <li>Space-air-ground support for IoT, IoV, emergency communications, and intelligent transportation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="agents" class="research-area">
                 <h3>Intelligent Agents Communication and Networking</h3>
                 <div class="research-content">
@@ -243,4 +306,4 @@
         </section>
     </div>
 </body>
-</html> 
+</html>
